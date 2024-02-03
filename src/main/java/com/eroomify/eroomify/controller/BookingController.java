@@ -42,7 +42,7 @@ public class BookingController {
     }
 
     @PostMapping("/room/{roomId}/booking")
-    public ResponseEntity<?> saveBooking(@PathVariable Long roomId,
+    public ResponseEntity<Object> saveBooking(@PathVariable Long roomId,
                                          @RequestBody BookedRoom bookingRequest){
         try{
             String confirmationCode = bookingService.saveBooking(roomId, bookingRequest);
