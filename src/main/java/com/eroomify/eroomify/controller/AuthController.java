@@ -38,7 +38,7 @@ public class AuthController {
     }
 
     @PostMapping("/register-user")
-    public ResponseEntity<?> registerUser(@RequestBody User user){
+    public ResponseEntity<Object> registerUser(@RequestBody User user){
         try{
             userService.registerUser(user);
             return ResponseEntity.ok("Registration successful!");
@@ -49,7 +49,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest request){
+    public ResponseEntity<Object> authenticateUser(@Valid @RequestBody LoginRequest request){
         Authentication authentication =
                 authenticationManager
                         .authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
